@@ -1,3 +1,11 @@
+Repo Contents
+Jenkinsfile = The pipeline used to complete the assignment
+Dockerfile = The dockerfile used to create the runnable container
+spring-petclinic.latest.tar = tarfile containing runable docker image of the spring-petclinic project
+
+
+
+
 # jFrogHW
 jFrog homework for Security SE position
 
