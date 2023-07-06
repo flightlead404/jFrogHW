@@ -38,14 +38,28 @@ pipeline {
                 sh '/usr/local/bin/docker build -t spring-petclinic -f /Users/mwalker/Documents/jFrogHomework/Dockerfile .'
             }
         }
+
+        stage('Analyze image') {
+            steps {
+                // Log into Docker Hub
+                sh 'echo $DOCKER_PAT | /usr/local/bin/docker login -u $DOCKER_USER --password-stdin'
+                // Analyze and fail on critical or high vulnerabilities
+                sh '/usr/local/bin/docker-scout cves spring-petclinic --exit-code --only-severity critical,high'
+            }
+        }
         
         stage('Publish Docker image') {
             steps {
                 script {
-                    sh '/usr/local/bin/docker login -u flightlead404 -p \'TtNbWSWN0*$I%1og\''
+                    sh 'echo $DOCKER_PAT | /usr/local/bin/docker login -u $DOCKER_USER --password-stdin'
                     sh '/usr/local/bin/docker tag spring-petclinic flightlead404/spring-petclinic:latest'
                     sh '/usr/local/bin/docker push flightlead404/spring-petclinic:latest'
                 }
+            }
+        }
+       stage('Docker Logout') {
+            steps {
+                sh '/usr/local/bin/docker logout'
             }
         }
     }
