@@ -6,11 +6,11 @@ Dockerfile = The dockerfile used to create the runnable container
 
 spring-petclinic.latest published to dockerhub docker.io/flightlead404/spring-petclinic
 
-spring-petclinic.latest.tar availabe here:
+spring-petclinic.latest.tar availabe here: https://www.dropbox.com/s/3q1404hm57gg0ys/spring-petclinic.latest.tar.gz?dl=0
 
-To run, untar the the tarball, 
+To run:
 
-
+docker import ./spring-petclinic.tar && docker run flightlead404/spring-petclinic
 
 
 # jFrogHW
