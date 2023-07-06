@@ -1,7 +1,14 @@
-Repo Contents
+Repo Contents:
+
 Jenkinsfile = The pipeline used to complete the assignment
+
 Dockerfile = The dockerfile used to create the runnable container
-spring-petclinic.latest.tar = tarfile containing runable docker image of the spring-petclinic project
+
+spring-petclinic.latest published to dockerhub docker.io/flightlead404/spring-petclinic
+
+spring-petclinic.latest.tar availabe here:
+
+To run, untar the the tarball, 
 
 
 
